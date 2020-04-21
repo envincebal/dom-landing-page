@@ -1,0 +1,150 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oxygen", sans-serif;
+}
+
+section{
+  padding: 5em 0;
+}
+
+
+/* Typeography General*/
+h1 {
+
+
+}
+
+
+h2 {
+  border-bottom: 1px solid #cc1;
+  font-size: 3em;
+
+}
+
+p {
+  line-height: 1.6em;
+
+}
+
+/* Navigation Styles*/
+
+.navbar{ 
+  background: #000;
+  position: fixed;
+  width: 100%;
+}
+
+.navbar ul {
+  padding-left: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.navbar li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.navbar .navbar-link {
+  display: block;
+  padding: 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar .navbar-link:hover {
+  background: #333;
+  color: #fff;
+  transition: ease 0.3s all;
+}
+
+/* Header Styles */
+
+/* ---- Layout Rules ---- */
+
+.main-hero {
+  height: 100vh;
+  padding-top: 3em;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/main.jpg");
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.title{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  color: #fff;
+}
+
+section:nth-of-type(odd) {
+  background-color: #ffffff; 
+  color: #000;
+}
+
+section:nth-of-type(even) {
+  background-color: #465286; 
+  color: #fff;
+}
+
+
+/* Footer Styles */
+.footer {
+  background: #000;
+  padding: 3em;
+  color: #fff;
+}
+
+.footer p {
+  color: #fff;
+}
+
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.container {
+  padding: 7em;
+  text-align: left;
+}
+
+@media only screen and (min-width: 35em) {
+  .container {
+    max-width: 50em;
+    padding: 4em;
+  }
+}
+
+section:nth-of-type(even) .container {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+
+}
+
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {}
