@@ -1,17 +1,6 @@
-/*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
-
-
 /* ---- Base Rules ---- */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,50 +10,57 @@ body {
   font-family: "Oxygen", sans-serif;
 }
 
-section{
+section {
   padding: 3em 0;
 }
 
-
 /* Typeography General*/
-h1 {
-
-
-}
-
 
 h2 {
   border-bottom: 1px solid #cc1;
   font-size: 3em;
-
 }
 
 p {
   line-height: 2em;
-
 }
 
 /* Navigation Styles*/
 
-.navbar{ 
-  background: transparent;
+.navbar {
+  background-color: #192764;
+  color: #fff;
+  padding: 0 9em;
   position: fixed;
+  min-height: 68px;
   width: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  padding: 20px 0 0 0;
 }
 
 .navbar ul {
   padding-left: 0;
   margin: 0;
-  text-align: right;
+  list-style: none;
+  display: flex;
 }
 
 .navbar li {
-  display: inline-block;
-  margin: 0 15px;
+  padding: 20px;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  background-color: #4260e6;
 }
 
 .navbar .navbar-link {
-  display: block;
   padding: 1em;
   font-weight: bold;
   text-decoration: none;
@@ -77,20 +73,29 @@ p {
   transition: ease 0.3s all;
 }
 
-/* Header Styles */
+/* Landing Container Styles */
+.container {
+  padding: 7em;
+  text-align: left;
+  max-width: 70em;
+}
+
+section:nth-of-type(even) .container {
+  margin-left: auto;
+}
 
 /* ---- Layout Rules ---- */
 
 .main-hero {
   height: 100vh;
   padding-top: 3em;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/main.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/main.jpg");
   width: 100%;
   background-size: cover;
   background-position: center;
 }
 
-.hero{
+.hero {
   text-align: center;
   top: 50%;
   left: 50%;
@@ -99,15 +104,15 @@ p {
   color: #fff;
 }
 
-.title{
- font-size: 3em;
+.title {
+  font-size: 3em;
 }
 
-.sub-title{
+.sub-title {
   font-size: 1.5em;
 }
 
-.subscribe{
+.subscribe {
   border-radius: 5px;
   padding: 15px 25px;
   margin: 20px 0 0 0;
@@ -119,12 +124,12 @@ p {
 }
 
 section:nth-of-type(odd) {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   color: #000;
 }
 
 section:nth-of-type(even) {
-  background-color: #465286; 
+  background-color: #465286;
   color: #fff;
 }
 
@@ -138,23 +143,6 @@ section:nth-of-type(even) {
 
 .footer p {
   color: #fff;
-}
-
-
-/* ---- Theme Rules ---- */
-/* Landing Container Styles */
-.container {
-  padding: 7em;
-  text-align: left;
-  max-width: 70em; 
-}
-
-
-section:nth-of-type(even) .container {
-  margin-right: 0;
-  margin-left: auto;
-  text-align: right;
-
 }
 
 
