@@ -43,35 +43,34 @@ p {
   padding: 20px 0 0 0;
 }
 
-.navbar ul {
-  padding-left: 0;
-  margin: 0;
+.navbar-list {
   list-style: none;
   display: flex;
 }
 
-.navbar li {
-  padding: 20px;
-  font-size: 1.3em;
-  cursor: pointer;
+.navbar-list li {
+
 }
 
-.navbar li:hover {
+.navbar-list li:hover {
   background-color: #4260e6;
 }
 
-.navbar .navbar-link {
-  padding: 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
+.navbar-list li a {
+  display: inline-block;
+  padding: 22px 15px 15px 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  vertical-align: middle;
 }
 
-.navbar .navbar-link:hover {
-  background: #333;
+.navbar-list li a:hover,
+.navbar-list li a:visited,
+.navbar-list li a:link{
   color: #fff;
-  transition: ease 0.3s all;
+  text-decoration: none;
 }
+
 
 /* Landing Container Styles */
 .container {

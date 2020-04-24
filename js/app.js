@@ -33,14 +33,16 @@ document.addEventListener("click", (e) => {
 });
 
 function addNavlinks() {
- 
 
   for (let i = 0; i < section.length; i++) {
-     const newListItem = document.createElement("li");
-    newListItem.textContent = section[i].getAttribute("data-nav");
-    console.log(section[i].getAttribute("data-nav"));
-    
-navbar.appendChild(newListItem);
+    const newListItem = document.createElement("li");
+    const newListLink = document.createElement("a");
+
+    newListLink.textContent = section[i].getAttribute("data-nav");
+
+    newListLink.setAttribute("href", "#" + section[i].getAttribute("id"));
+    newListItem.appendChild(newListLink);
+    navbar.appendChild(newListItem);
   }
 
 }
