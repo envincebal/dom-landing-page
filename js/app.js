@@ -26,11 +26,8 @@ const section = document.getElementsByTagName("section");
  * 
  */
 
-addNavlinks();
 
-document.addEventListener("click", (e) => {
-  console.log(e.target.getAttribute("data-nav"));
-});
+addNavlinks();
 
 function addNavlinks() {
 
@@ -44,8 +41,23 @@ function addNavlinks() {
     newListItem.appendChild(newListLink);
     navbar.appendChild(newListItem);
   }
-
 }
+
+document.querySelectorAll("a[href^='#']").forEach(elem => {
+  elem.addEventListener("click", e => {
+      e.preventDefault();
+      document.querySelector(elem.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+        offsetTop: 20
+      });
+  });
+});
+
+document.addEventListener("click", (e) => {
+  console.log(e.target.getAttribute("data-nav"));
+});
+
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -55,7 +67,7 @@ function addNavlinks() {
 // build the nav
 
 
-// Add class 'active' to section when near top of viewport
+// Add class "active" to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
