@@ -48,25 +48,20 @@ p {
   display: flex;
 }
 
-.navbar-list li {
 
-}
 
-.navbar-list li:hover {
-  background-color: #4260e6;
-}
 
 .navbar-list li a {
   display: inline-block;
   padding: 22px 15px 15px 15px;
   font-size: 1.2em;
   cursor: pointer;
-  vertical-align: middle;
+  height: 100%;
 }
 
 .navbar-list li a:hover,
 .navbar-list li a:visited,
-.navbar-list li a:link{
+.navbar-list li a:link {
   color: #fff;
   text-decoration: none;
 }
@@ -88,7 +83,7 @@ section:nth-of-type(even) .container {
 .main-hero {
   height: 100vh;
   padding-top: 3em;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/main.jpg");
+  background-image: linear-gradient(#0000004d, #0000004d), url("../img/main.jpg");
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -149,4 +144,6 @@ section:nth-of-type(even) {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {}
+.active {
+  background-color: #4260e6;
+}

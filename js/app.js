@@ -19,7 +19,7 @@
  */
 const navbar = document.querySelector(".navbar-list");
 const section = document.getElementsByTagName("section");
-
+const sectionArray = Array.prototype.slice.call(section); // Converts card elements to an array.
 /**
  * End Global Variables
  * Start Helper Functions
@@ -29,27 +29,50 @@ const section = document.getElementsByTagName("section");
 
 addNavlinks();
 
+
 function addNavlinks() {
 
-  for (let i = 0; i < section.length; i++) {
+  sectionArray.forEach(item => {
     const newListItem = document.createElement("li");
     const newListLink = document.createElement("a");
 
-    newListLink.textContent = section[i].getAttribute("data-nav");
+    newListLink.textContent = item.getAttribute("data-nav");
 
-    newListLink.setAttribute("href", "#" + section[i].getAttribute("id"));
+    newListLink.setAttribute("href", "#" + item.getAttribute("id"));
+
     newListItem.appendChild(newListLink);
+
     navbar.appendChild(newListItem);
-  }
+  })
+
+
+
 }
 
 document.querySelectorAll("a[href^='#']").forEach(elem => {
   elem.addEventListener("click", e => {
-      e.preventDefault();
-      document.querySelector(elem.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-        offsetTop: 20
-      });
+    e.preventDefault();
+    document.querySelector(elem.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+
+window.addEventListener("scroll", event => {
+  let navigationLinks = document.querySelectorAll(".navbar-list li a");
+  let fromTop = window.scrollY + 225;
+ 
+  navigationLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+   
+    if (
+      section.offsetTop <= fromTop &&
+      section.offsetTop + section.offsetHeight > fromTop
+    ) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
   });
 });
 
