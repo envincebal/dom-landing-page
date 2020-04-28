@@ -1,35 +1,14 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
- */
-
-/**
- * Define Global Variables
- * 
- */
+/** 
+ Global Variables
+ **/
 const navbar = document.querySelector(".navbar-list");
+const menuToggle = document.querySelector(".menu-toggle");
 const section = document.getElementsByTagName("section");
-const sectionArray = Array.prototype.slice.call(section); // Converts card elements to an array.
-/**
- * End Global Variables
- * Start Helper Functions
- * 
- */
-
+const sectionArray = Array.prototype.slice.call(section);
 
 addNavlinks();
 
-
+// This function dynamically creates links to navbar every time a section is added.
 function addNavlinks() {
 
   sectionArray.forEach(item => {
@@ -44,66 +23,66 @@ function addNavlinks() {
 
     navbar.appendChild(newListItem);
   })
-
-
-
 }
 
-document.querySelectorAll("a[href^='#']").forEach(elem => {
-  elem.addEventListener("click", e => {
+// This loops through all dynamic links and attaches click event listeners that scrolls to their respective sections. 
+document.querySelectorAll("a[href^='#']").forEach(item => {
+  item.addEventListener("click", e => {
     e.preventDefault();
-    document.querySelector(elem.getAttribute("href")).scrollIntoView({
+    document.querySelector(item.getAttribute("href")).scrollIntoView({
       behavior: "smooth"
     });
   });
 });
 
+// This adds active class to the links in navbar when user scrolls to past their corresponding sections.
 window.addEventListener("scroll", event => {
   let navigationLinks = document.querySelectorAll(".navbar-list li a");
   let fromTop = window.scrollY + 225;
- 
+
   navigationLinks.forEach(link => {
     let section = document.querySelector(link.hash);
-   
+
     if (
       section.offsetTop <= fromTop &&
       section.offsetTop + section.offsetHeight > fromTop
     ) {
-      link.classList.add('active');
+      link.classList.add("active");
     } else {
-      link.classList.remove('active');
+      link.classList.remove("active");
     }
   });
 });
 
-document.addEventListener("click", (e) => {
-  console.log(e.target.getAttribute("data-nav"));
+// This even listener toggles displaying and hiding mobile menu.
+menuToggle.addEventListener("click", () => {
+  if (navbar.classList.contains("show-mobile-menu")) {
+    navbar.classList.add("hide-mobile-menu");
+    navbar.classList.remove("show-mobile-menu");
+  } else {
+    navbar.classList.remove("hide-mobile-menu");
+    navbar.classList.add("show-mobile-menu");
+  }
 });
 
+function viewportChange(mediaQuery) {
+  // if viewport is beyond 1200px, mobile menu is hidden. If below that, it is visible.
+  if (mediaQuery.matches) {
+    navbar.classList.remove("show-flex-menu");
+    navbar.classList.remove("show-mobile-menu");
+    navbar.classList.add("hide-mobile-menu");
+  } else {
+    navbar.classList.add("show-flex-menu");
+    navbar.classList.remove("show-mobile-menu");
+    navbar.classList.remove("hide-mobile-menu");
+  }
+}
 
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
- */
+// Watches for changes in viewport to add or remove appropriate classes accordingly.
+if (matchMedia) {
+  const mediaQuery = window.matchMedia("(max-width: 1200px)");
 
-// build the nav
+  mediaQuery.addListener(viewportChange);
+  viewportChange(mediaQuery);
+}
 
-
-// Add class "active" to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
- */
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
